@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import { FiSearch } from "react-icons/fi";
-import "./styles.css";
-import api from "./services/api";
+import React, { useState } from 'react'
+import { FiSearch } from 'react-icons/fi'
+import './styles/globalStyles'
+import './styles.css'
+import api from './services/api'
 
 function App() {
-  const [input, setInput] = useState("");
-  const [cep, setCep] = useState({});
+  const [input, setInput] = useState('')
+  const [cep, setCep] = useState({})
 
   async function searchHandler() {
-    if (input === "") {
-      alert("Preencha o campo");
-      return;
+    if (input === '') {
+      alert('Preencha o campo')
+      return
     }
 
     try {
-      const response = await api.get(`${input}/json`);
-      setCep(response.data);
-      console.log(response.data);
-      setInput("");
+      const response = await api.get(`${input}/json`)
+      setCep(response.data)
+      console.log(response.data)
+      setInput('')
     } catch (error) {
-      alert("Erro ao buscar o Cep");
-      setInput("");
+      alert('Erro ao buscar o Cep')
+      setInput('')
     }
   }
 
@@ -44,13 +45,13 @@ function App() {
           <h2> CEP : {cep.cep}</h2>
           <span> {cep.logradouro} </span>
           <span>
-            {" "}
+            {' '}
             {cep.localidade} - {cep.uf}
           </span>
         </main>
       )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
