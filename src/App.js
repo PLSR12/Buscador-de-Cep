@@ -30,7 +30,7 @@ function App() {
       <h1 className="title"> Buscador de CEP </h1>
       <div className="containerInput">
         <input
-          type="text"
+          type="number"
           placeholder="Digite seu Cep"
           value={input}
           onChange={(e) => setInput(e.target.value)}
